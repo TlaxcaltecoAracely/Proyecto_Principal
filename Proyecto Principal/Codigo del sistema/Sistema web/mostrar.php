@@ -1,26 +1,4 @@
-<?php
-
-//echo "Bienvenido:".$_SESSION["usuario"];
-session_start();
-
-if(isset($_SESSION['usuario'])){ 
-	$usuario=$_SESSION['usuario'];
-	//echo"Puedes ver esta pagina";
-	//echo "bienvenido"."<br>".$_SESSION['usuario'];
-
-?>
-<script>
-alert('Bienvenido.');
-var usuario="<?php $_SESSION['usuario'] ?>";
-</script>
-	
-
-<!DOCTYPE>
-<html>
-<head>
-<meta HTTP-EQUIV="Content-Type" content="tex/html; charset=iso-8859-1" />
-  <title> Inicio de Sesi&oacute;n </title>
-   <style>
+<style>
    form{
 
 	    margin:0 auto;
@@ -51,10 +29,10 @@ img#imagen1{
 	  
 	  
    </style>
+<meta HTTP-EQUIV="Content-Type" content="tex/html; charset=iso-8859-1" />
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
   <meta charset="UTF-8">
-  
-</head>
+
 <body>
   <center>
   <div class="container">
@@ -100,13 +78,7 @@ img#imagen1{
 	</div>
 	<br><br>
 	
-	<div class="container">
-	 <div class="panel panel-default">
-	  <div class="panel-body">
-       <p class="lead">Bienvenido al panel de control de Administración de ventas de sudaderas,playeras y gorras.
-	</div>
-   </div>
-</div>  
+	
 
 <!-- VENTANA REGISTRAR MATERIA PRIMA -->
     <div class="container">
@@ -120,7 +92,7 @@ img#imagen1{
             <div class="modal-body">              
             <!-- FORMULARIO  -->
   
-              <form class="form-horizontal" name="formulario" method="POST" action="insertar.php" class="login" onsubmit="return revisar()">
+              <form class="form-horizontal" name="formulario" method="POST" action="insertar2.php" class="login" onsubmit="return revisar()">
                    
 
                     <div class="form-group">
@@ -196,17 +168,98 @@ img#imagen1{
    <script type="text/javascript" src='js/bootstrap.min.js'></script>
 </body>
 </html>  
-<?php
-}else{?>
-<script>
-alert('Esta página está restringida, por favor inicie sesión.');
-var pagina="login.php"
-function redireccionar(){
-location.href=pagina
-}
-setTimeout ("redireccionar()");
 
-</script>
+
+
+<!-- fin de codigo--->
 <?php
-}
+	
+	$mysqli=new mysqli("localhost","root","123456","Web-sis"); //servidor, usuario de base de datos, contraseña del usuario, nombre de base de datos
+	
+	if(mysqli_connect_errno()){
+		echo 'Conexion Fallida : ', mysqli_connect_error();
+		exit();
+	}
+	//else{
+	//echo"Felicidaddes se logro la conexion";}
 ?>
+<?php
+
+	$query="SELECT idMateria_Prima, Nombre_Material, Unidades_Disponibles, Tipo_material, Talla, Color, Precio_unidad	FROM materia_prima";
+	 $resultado=$mysqli->query($query);
+?>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+  <meta charset="UTF-8">
+
+
+<!-- TABLA DE MATERIA REGISTRADA -->
+	<div class="container">
+		<div class="row">
+			<br>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">Material Registrado</div>
+					<table class="table table-bordered table-condensed table-hover">
+					
+				<!-- Inicion del codigo de la Tabla-->	
+				
+						<thead>
+							<tr class="warning">
+							    
+								<th>idMateria_prima</th>
+								<th>Nombre_Material</th>
+								<th>Unidades_Disponibles</th>
+								<th>Talla</th>
+								<th>Color</th>
+								<th>Precio_unidad</th>
+								<th> </th>
+								<th> </th>
+							</tr>	
+							
+						</thead>				
+						
+						<tbody>
+						
+						<?php while($row=$resultado->fetch_assoc()){ ?>
+						
+						
+							<tr>
+							<!--para que puedas tienes que me terlo en detalles y que muestr la tabla-->
+							    <td class="success">
+								<?php echo $row['idMateria_Prima'];?>
+							    </td>
+								
+						
+								<td> <?php echo $row['Nombre_Material'];?></td>
+								<td><?php echo $row['Unidades_Disponibles']; ?></td>
+								<td><?php echo $row['Talla']; ?></td>
+								<td><?php echo $row['Color']; ?></td>
+								<td><?php echo $row['Precio_unidad']; ?></td>						
+								<td class="success">
+								<a href="modificar.php">Modificar</a>
+							    </td>
+								<td class="success">
+								
+								<a  href="eliminar.php?id=<?php echo $row['idMateria_Prima'];?>">Eliminar</a>
+							    </td>
+					
+								
+							</tr>
+							<?php } ?>
+						</tbody>	
+									
+					</table>							
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- FIN DE TABLA -->
+	
+	
+	 <!--  --> 
+ 
+   
+    

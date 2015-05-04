@@ -83,7 +83,7 @@ img#imagen1{
 	<div class="container">
 	 <div class="panel panel-default">
 	  <div class="panel-body">
-       <p class="lead">Bienvenido al panel de control de Administración de ventas de sudaderas,playeras y gorras.
+       <p class="lead">Bienvenido. Puesdes realizar tus pedidos de sudaderas,playeras y gorras cuando lo requieras.
 	</div>
    </div>
 </div>   
