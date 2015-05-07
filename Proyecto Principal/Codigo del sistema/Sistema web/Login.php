@@ -32,18 +32,7 @@
 			<h1>Control de Ventas de Playeras y Sudaderas<small> </small></h1>
 		</div>
 	</div>
-	<div class="container">
-	<div class="page-header">
-		<ul class="nav nav-pills">
-			<li><a href="#">Registrar Clientes</a></li>
-			<li><a href="#">Registrar Materia Prima</a></li>
-			<li><a href="#">Registrar Pagos por Pedido</a></li>
-			<li><a href="#">Registrar Gastos</a></li>
-			<li><a href="#">Registrar Empleados</a></li>
-			
-		</ul>
-		</div>
-	</div>
+	
 	<br><br>
 
   <!--  -->

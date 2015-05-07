@@ -45,7 +45,17 @@ img#imagen1{
 	<div class="page-header">
 		<ul class="nav nav-pills">
 			<li class="active"><a href="inicio.php">Inicio</a></li>
-			<li><a href="#">Registrar Clientes</a></li>
+			
+			<li class="dropdown">
+			<a class="dropdown-toggle" data-toggle="dropdown" href="#">Clientes
+			<span class="caret"></span></a>
+			<ul class="dropdown-menu">
+			<li><a href="opcion2" data-toggle="modal" name="bot" data-target="#myModal">Registrar Clientes</a></li>
+			<li class="divider"></li>
+			       <?php echo"<li><a href=mostrar.php>Consultar clientes</a></li>";?>
+			 </ul>
+			</li>
+			
 			
 			<li class="dropdown">
 			<a class="dropdown-toggle" data-toggle="dropdown" href="#">Materia Prima
@@ -56,10 +66,39 @@ img#imagen1{
 			       <?php echo"<li><a href=mostrar.php>Consultar Todo</a></li>";?>
 			 </ul>
 			</li>
+				
+			<li class="dropdown">
+			<a class="dropdown-toggle" data-toggle="dropdown" href="#">Pagos por Pedido
+			<span class="caret"></span></a>
+			<ul class="dropdown-menu">
+			<li><a href="opcion2" data-toggle="modal" name="bot" data-target="#myModal">Registrar pagos</a></li>
+			<li class="divider"></li>
+			       <?php echo"<li><a href=mostrar.php>Consultar pagos</a></li>";?>
+			 </ul>
+			</li>
+			
+				
+			<li class="dropdown">
+			<a class="dropdown-toggle" data-toggle="dropdown" href="#">Gastos
+			<span class="caret"></span></a>
+			<ul class="dropdown-menu">
+			<li><a href="opcion2" data-toggle="modal" name="bot" data-target="#myModal">Registrar Gastos</a></li>
+			<li class="divider"></li>
+			       <?php echo"<li><a href=mostrar.php>Consultar gastos</a></li>";?>
+			 </ul>
+			</li>
 			 
-			<li><a href="#">Registrar Pagos por Pedido</a></li>
-			<li><a href="#">Registrar Gastos</a></li>
-			<li><a href="#">Registrar Empleados</a></li>
+				
+			<li class="dropdown">
+			<a class="dropdown-toggle" data-toggle="dropdown" href="#">Empleados
+			<span class="caret"></span></a>
+			<ul class="dropdown-menu">
+			<li><a href="opcion2" data-toggle="modal" name="bot" data-target="#myModal">Registrar empleados</a></li>
+			<li class="divider"></li>
+			       <?php echo"<li><a href=mostrar.php>Consultar empleados</a></li>";?>
+			 </ul>
+			</li>
+			
 			<li class="dropdown">
 			    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
 			      Cuenta <span class="caret"></span>
@@ -239,7 +278,7 @@ img#imagen1{
 								<td><?php echo $row['Color']; ?></td>
 								<td><?php echo $row['Precio_unidad']; ?></td>						
 								<td class="success">
-								<a href="modificar.php">Modificar</a>
+								<a href="opcion2?id=<?php echo $row['idMateria_Prima'];?>" data-toggle="modal" name="bot" data-target="#myModal1">Modificar</a>
 							    </td>
 								<td class="success">
 								
@@ -260,6 +299,96 @@ img#imagen1{
 	
 	
 	 <!--  --> 
+	 
+	 <!-- VENTANA REGISTRAR MATERIA PRIMA -->
+    <div class="container">
+      <div class="modal fade"  data-keyboard="false" data-backdrop="static" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal"  aria-hidden="true">X</button>
+              <h4  class="alert alert-info" id="myModalLabel">Modificar material seleccionado:</h4>
+            </div>
+            <div class="modal-body">              
+            <!-- FORMULARIO  -->
+				
+					
+              <form class="form-horizontal" name="formulario" method="POST" action="insertar2.php" class="login" onsubmit="return revisar()">
+                   
+					<?php 
+					
+
+	 $query="SELECT idMateria_Prima, Nombre_Material, Unidades_Disponibles, Tipo_material, Talla, Color, Precio_unidad	FROM materia_prima";
+	 $resultado=$mysqli->query($query);
+
+					
+					
+					if($row=$resultado->fetch_assoc()){ ?>
+                    <div class="form-group">
+                   <label for="especialidad" style="color: blue"class="col-sm-3 control-label">Nombre_Material:</label>
+                   <div class="col-sm-6">
+                    <input type="text"  style="color: orange"class="form-control" value="<?php echo $row['Nombre_Material']; ?>"name="nombre" placeholder="Nombre de la materia"required>
+                   </div>                   
+                   </div>
+				  
+
+                    <div class="form-group">
+                  <label for="nombre_letrado" style="color: blue"class="col-sm-3 control-label">Unidades_Disponibles:</label>
+                  <div class="col-sm-6">
+                    <input type="text" style="color: orange"class="form-control" name="unidades" placeholder="Cantidad de materia disponible"required>
+                  </div>                    
+                    </div>
+					<?php } ?>
+ 
+                    <div class="form-group">
+                  <label for="proceso_expediente" style="color: blue"class="col-sm-3 control-label">Tipo_Material:</label>
+                  <div class="col-sm-6">
+                    <input type="text" style="color: orange"class="form-control" name="tipo" placeholder="Tipo"required>
+                  </div>                    
+                    </div>
+
+                   
+
+                   <div class="form-group">
+                  <label for="text" style="color: blue"class="col-sm-2 col-sm-offset-1 control-label">Talla:</label>
+                  <div class="col-md-6">
+                    <input type="text" style="color: orange"class="form-control" name="talla" placeholder="Talla de materia"required>
+                  </div>
+                </div>
+
+
+                  <div class="form-group">
+                  <label for="text" style="color: blue"class="col-sm-2 col-sm-offset-1 control-label">Color:</label>
+                  <div class="col-md-6">
+                    <input type="text" style="color: orange"class="form-control" name="color" placeholder="Color"required>
+                  </div>
+                </div>
+                  
+                 <div class="form-group">
+                  <label for="organo" style="color: blue"class="col-sm-3 control-label">Precio_Unidad:</label>
+                  <div class="col-sm-6">
+                    <input type="text" style="color: orange"class="form-control" name="precio" placeholder="Precio"required>
+                  </div>                    
+                    </div>             
+                          
+                               
+            
+              <div>
+					
+                     <button type="submit" class="btn  btn-primary" name="insertar">Guardar</button>
+                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+					
+            </div>
+			 
+            </form>
+            
+        </div>
+      </div>      
+    </div>  
+
+  </div>      
+</div>
+
  
    
     

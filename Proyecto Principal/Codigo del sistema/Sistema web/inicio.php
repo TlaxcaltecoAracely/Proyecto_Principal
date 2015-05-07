@@ -66,8 +66,17 @@ img#imagen1{
 	<div class="container">
 	<div class="page-header">
 		<ul class="nav nav-pills">
-			<li class="active"><a href="inicio.php">Inicio</a></li>
-			<li><a href="#">Registrar Clientes</a></li>
+			<li class="active"><a href="inicio.php">Inicio</a></li>			
+			
+			<li class="dropdown">
+			<a class="dropdown-toggle" data-toggle="dropdown" href="#">Clientes
+			<span class="caret"></span></a>
+			<ul class="dropdown-menu">
+			<li><a href="opcion2" data-toggle="modal" name="bot" data-target="#myModal">Registrar Clientes</a></li>
+			<li class="divider"></li>
+			       <?php echo"<li><a href=mostrar.php>Consultar clientes</a></li>";?>
+			 </ul>
+			</li>			
 			
 			<li class="dropdown">
 			<a class="dropdown-toggle" data-toggle="dropdown" href="#">Materia Prima
@@ -75,13 +84,40 @@ img#imagen1{
 			<ul class="dropdown-menu">
 			<li><a href="opcion2" data-toggle="modal" name="bot" data-target="#myModal">Registrar Materia Prima</a></li>
 			<li class="divider"></li>
-			       <?php echo"<li><a href=mostrar.php>Consultar Todo</a></li>";?>
+			       <?php echo"<li><a href=mostrar.php>Consultar materia prima</a></li>";?>
+			 </ul>
+			</li>
+			
+			<li class="dropdown">
+			<a class="dropdown-toggle" data-toggle="dropdown" href="#">Pagos por pedido
+			<span class="caret"></span></a>
+			<ul class="dropdown-menu">
+			<li><a href="opcion2" data-toggle="modal" name="bot" data-target="#myModal">Registrar Pagos</a></li>
+			<li class="divider"></li>
+			       <?php echo"<li><a href=mostrar.php>Consultar Todos los pagos</a></li>";?>
 			 </ul>
 			</li>
 			 
-			<li><a href="#">Registrar Pagos por Pedido</a></li>
-			<li><a href="#">Registrar Gastos</a></li>
-			<li><a href="#">Registrar Empleados</a></li>
+			<li class="dropdown">
+			<a class="dropdown-toggle" data-toggle="dropdown" href="#">Gastos
+			<span class="caret"></span></a>
+			<ul class="dropdown-menu">
+			<li><a href="opcion2" data-toggle="modal" name="bot" data-target="#myModal">Registrar Gastos</a></li>
+			<li class="divider"></li>
+			       <?php echo"<li><a href=mostrar.php>Consultar gastos</a></li>";?>
+			 </ul>
+			</li>
+			
+			<li class="dropdown">
+			<a class="dropdown-toggle" data-toggle="dropdown" href="#">Empleados
+			<span class="caret"></span></a>
+			<ul class="dropdown-menu">
+			<li><a href="opcion2" data-toggle="modal" name="bot" data-target="#myModal">Registrar Empleados</a></li>
+			<li class="divider"></li>
+			       <?php echo"<li><a href=mostrar.php>Consultar empleados</a></li>";?>
+			 </ul>
+			</li>
+			
 			<li class="dropdown">
 			    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
 			      Cuenta <span class="caret"></span>

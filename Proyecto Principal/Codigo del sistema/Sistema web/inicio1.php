@@ -57,7 +57,7 @@ img#imagen1{
 	<div class="container">
 	<div class="page-header">
 		<ul class="nav nav-pills">
-			<li class="active"><a href="inicio.php">Inicio</a></li>
+			<li class="active"><a href="inicio1.php">Inicio</a></li>
 			<li><a href="#">Playeras</a></li>
 			<li><a href="#">Sudaderas</a></li>
 			<li><a href="#">Pagos</a></li>
