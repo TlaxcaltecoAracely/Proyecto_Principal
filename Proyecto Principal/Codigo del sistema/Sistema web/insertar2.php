@@ -5,8 +5,8 @@ $tipo=$_POST['tipo'];
 $talla=$_POST['talla'];
 $color=$_POST['color'];
 $precio=$_POST['precio'];
-$link=mysql_connect("localhost","root","123456");
-mysql_select_db("Web-sis");
+$link=mysql_connect("localhost","root","");
+mysql_select_db("sistema-web");
 
 
 

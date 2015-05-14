@@ -58,9 +58,15 @@ img#imagen1{
 	<div class="page-header">
 		<ul class="nav nav-pills">
 			<li class="active"><a href="inicio2.php">Inicio</a></li>
+			<li class="dropdown">
+			<a class="dropdown-toggle" data-toggle="dropdown" href="#">Pedido
+			<span class="caret"></span></a>
+			<ul class="dropdown-menu">
 			<li><a href="opcion2" data-toggle="modal" name="bot" data-target="#myModal">Registrar Pedido</a></li>
-			<li><a href="#">Modificar pedido</a></li>
-			<li><a href="#">Cancelar pedido</a></li>				
+			<li class="divider"></li>
+			       <?php echo"<li><a href=mostrarPedido.php>Consultar Pedido</a></li>";?>
+			 </ul>
+			</li>						
 			<li class="dropdown">
 			    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
 			      Cuenta <span class="caret"></span>
@@ -104,14 +110,14 @@ img#imagen1{
                     <div class="form-group">
                    <label for="especialidad" style="color: blue"class="col-sm-3 control-label">Nombre_pedido:</label>
                    <div class="col-sm-6">
-                    <input type="text"  style="color: orange"class="form-control" name="nombre" placeholder="Nombre de la materia"required>
+                    <input type="text"  style="color: orange"class="form-control" name="nombre" placeholder="Nombre pedido"required>
                    </div>                   
                    </div>
 
                     <div class="form-group">
                   <label for="nombre_letrado" style="color: blue"class="col-sm-3 control-label">Numero_pedido:</label>
                   <div class="col-sm-6">
-                    <input type="text" style="color: orange"class="form-control" name="Numero" placeholder="Cantidad de materia disponible"required>
+                    <input type="text" style="color: orange"class="form-control" name="Numero" placeholder="Numero pedido"required>
                   </div>                    
                     </div>
 
@@ -119,7 +125,7 @@ img#imagen1{
                     <div class="form-group">
                   <label for="proceso_expediente" style="color: blue"class="col-sm-3 control-label">Unidades_Requeridas:</label>
                   <div class="col-sm-6">
-                    <input type="text" style="color: orange"class="form-control" name="Unidades" placeholder="Tipo"required>
+                    <input type="text" style="color: orange"class="form-control" name="Unidades" placeholder="Unidades Requeridas"required>
                   </div>                    
                     </div>
 
@@ -128,7 +134,7 @@ img#imagen1{
                    <div class="form-group">
                   <label for="text" style="color: blue"class="col-sm-2 col-sm-offset-1 control-label">Costo_unidad:</label>
                   <div class="col-md-6">
-                    <input type="text" style="color: orange"class="form-control" name="Costo" placeholder="Talla de materia"required>
+                    <input type="text" style="color: orange"class="form-control" name="Costo" placeholder="Costo unidad"required>
                   </div>
                 </div>
 
@@ -136,28 +142,28 @@ img#imagen1{
                   <div class="form-group">
                   <label for="text" style="color: blue"class="col-sm-2 col-sm-offset-1 control-label">Importe_pedido:</label>
                   <div class="col-md-6">
-                    <input type="text" style="color: orange"class="form-control" name="Importe" placeholder="Color"required>
+                    <input type="text" style="color: orange"class="form-control" name="Importe" placeholder="Importe pedido"required>
                   </div>
                 </div>
                   
                  <div class="form-group">
                   <label for="organo" style="color: blue"class="col-sm-3 control-label">Fecha_pedido:</label>
                   <div class="col-sm-6">
-                    <input type="text" style="color: orange"class="form-control" name="Fechapedido" placeholder="Precio"required>
+                    <input type="text" style="color: orange"class="form-control" name="Fechapedido" placeholder="Fecha pedido"required>
                   </div>                    
                     </div>   
 
                   <div class="form-group">
                   <label for="organo" style="color: blue"class="col-sm-3 control-label">Fecha_entrega:</label>
                   <div class="col-sm-6">
-                    <input type="text" style="color: orange"class="form-control" name="Fechaentrega" placeholder="Precio"required>
+                    <input type="text" style="color: orange"class="form-control" name="Fechaentrega" placeholder="Fecha entrega"required>
                   </div>                    
                     </div>   
                  
                   <div class="form-group">
                   <label for="organo" style="color: blue"class="col-sm-3 control-label">Cliente_idCliente:</label>
                   <div class="col-sm-6">
-                    <input type="text" style="color: orange"class="form-control" name="cliente" placeholder="Precio"required>
+                    <input type="text" style="color: orange"class="form-control" name="cliente" placeholder="id Cliente"required>
                   </div>                    
                     </div>   				 
                           

@@ -5,7 +5,7 @@ include("conexion.php");
 	
 $id=$_GET['id'];
 
-$consulta="DELETE  from materia_prima WHERE idMateria_Prima='$id'";
+$consulta="DELETE  from pedidos WHERE idPedidos='$id'";
 $ejecutar_consulta=$conexion->query($consulta);
 }
 $ejet=ejecutar();
@@ -27,7 +27,7 @@ setTimeout ("redireccionar()");
 }
 }
  
-var pagina="mostrar.php"
+var pagina="mostrarPedido.php"
 function redireccionar(){
 location.href=pagina
 }

@@ -2,8 +2,8 @@
 function conectarse(){
 $servidor="localhost";
 $usuario="root";
-$password="123456";
-$base_de_datos="Web-sis";
+$password="";
+$base_de_datos="sistema-web";
 
 $conectar=new mysqli($servidor,$usuario,$password,$base_de_datos)
 or die("No se pudo conectar al servidor de BD MYSQL");

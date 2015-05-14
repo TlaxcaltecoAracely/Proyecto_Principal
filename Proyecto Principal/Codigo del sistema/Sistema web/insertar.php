@@ -5,8 +5,8 @@ $tipo=$_POST['tipo'];
 $talla=$_POST['talla'];
 $color=$_POST['color'];
 $precio=$_POST['precio'];
-$link=mysql_connect("localhost","root","123456");
-mysql_select_db("Web-sis");
+$link=mysql_connect("localhost","root","");
+mysql_select_db("sistema-web");
 
 
 
@@ -33,7 +33,7 @@ setTimeout ("redireccionar()");
 ?>
 <script>
 alert('El regitro no se pudo dar de alta,intente de nuevo por favor.);
-var pagina="incio.php"
+var pagina="inicio.php"
 function redireccionar(){
 location.href=pagina
 }

@@ -44,22 +44,18 @@ img#imagen1{
 	<div class="container">
 	<div class="page-header">
 		<ul class="nav nav-pills">
-			<li class="active"><a href="inicio.php">Inicio</a></li>
-			<li><a href="#"> Clientes</a></li>
+			<li class="active"><a href="inicio2.php">Inicio</a></li>
 			
 			<li class="dropdown">
-			<a class="dropdown-toggle" data-toggle="dropdown" href="#">Materia Prima
+			<a class="dropdown-toggle" data-toggle="dropdown" href="#">Pedido
 			<span class="caret"></span></a>
 			<ul class="dropdown-menu">
-			<li><a href="opcion2" data-toggle="modal" name="bot" data-target="#myModal">Registrar Materia Prima</a></li>
+			<li><a href="opcion2" data-toggle="modal" name="bot" data-target="#myModal">Registrar Pedido</a></li>
 			<li class="divider"></li>
-			       <?php echo"<li><a href=mostrar.php>Consultar Todo</a></li>";?>
+			       <?php echo"<li><a href=mostrarPedido.php>Consultar Pedido</a></li>";?>
 			 </ul>
 			</li>
 			 
-			<li><a href="#"> Pagos por Pedido</a></li>
-			<li><a href="#"> Gastos</a></li>
-			<li><a href="#"> Empleados</a></li>
 			<li class="dropdown">
 			    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
 			      Cuenta <span class="caret"></span>
@@ -96,14 +92,14 @@ img#imagen1{
                    
 
                     <div class="form-group">
-                   <label for="especialidad" style="color: blue"class="col-sm-3 control-label">Nombre_Material:</label>
+                   <label for="especialidad" style="color: blue"class="col-sm-3 control-label">Nombre_Pedido:</label>
                    <div class="col-sm-6">
                     <input type="text"  style="color: orange"class="form-control" name="nombre" placeholder="Nombre de la materia"required>
                    </div>                   
                    </div>
 
                     <div class="form-group">
-                  <label for="nombre_letrado" style="color: blue"class="col-sm-3 control-label">Unidades_Disponibles:</label>
+                  <label for="nombre_letrado" style="color: blue"class="col-sm-3 control-label">Numero_pedido:</label>
                   <div class="col-sm-6">
                     <input type="text" style="color: orange"class="form-control" name="unidades" placeholder="Cantidad de materia disponible"required>
                   </div>                    
@@ -111,7 +107,7 @@ img#imagen1{
 
  
                     <div class="form-group">
-                  <label for="proceso_expediente" style="color: blue"class="col-sm-3 control-label">Tipo_Material:</label>
+                  <label for="proceso_expediente" style="color: blue"class="col-sm-3 control-label">Unidades_Requeridas:</label>
                   <div class="col-sm-6">
                     <input type="text" style="color: orange"class="form-control" name="tipo" placeholder="Tipo"required>
                   </div>                    
@@ -120,7 +116,7 @@ img#imagen1{
                    
 
                    <div class="form-group">
-                  <label for="text" style="color: blue"class="col-sm-2 col-sm-offset-1 control-label">Talla:</label>
+                  <label for="text" style="color: blue"class="col-sm-2 col-sm-offset-1 control-label">Costo_unidad:</label>
                   <div class="col-md-6">
                     <input type="text" style="color: orange"class="form-control" name="talla" placeholder="Talla de materia"required>
                   </div>
@@ -128,14 +124,28 @@ img#imagen1{
 
 
                   <div class="form-group">
-                  <label for="text" style="color: blue"class="col-sm-2 col-sm-offset-1 control-label">Color:</label>
+                  <label for="text" style="color: blue"class="col-sm-2 col-sm-offset-1 control-label">Importe_pedido:</label>
+                  <div class="col-md-6">
+                    <input type="text" style="color: orange"class="form-control" name="color" placeholder="Color"required>
+                  </div>
+                </div>
+				
+				<div class="form-group">
+                  <label for="text" style="color: blue"class="col-sm-2 col-sm-offset-1 control-label">Fecha_pedido:</label>
+                  <div class="col-md-6">
+                    <input type="text" style="color: orange"class="form-control" name="color" placeholder="Color"required>
+                  </div>
+                </div>
+				
+				<div class="form-group">
+                  <label for="text" style="color: blue"class="col-sm-2 col-sm-offset-1 control-label">Fecha_entrega:</label>
                   <div class="col-md-6">
                     <input type="text" style="color: orange"class="form-control" name="color" placeholder="Color"required>
                   </div>
                 </div>
                   
                  <div class="form-group">
-                  <label for="organo" style="color: blue"class="col-sm-3 control-label">Precio_Unidad:</label>
+                  <label for="organo" style="color: blue"class="col-sm-3 control-label">Cliente_idCliente:</label>
                   <div class="col-sm-6">
                     <input type="text" style="color: orange"class="form-control" name="precio" placeholder="Precio"required>
                   </div>                    
@@ -185,7 +195,7 @@ img#imagen1{
 ?>
 <?php
 
-	$query="SELECT idMateria_Prima, Nombre_Material, Unidades_Disponibles, Tipo_material, Talla, Color, Precio_unidad	FROM  materia_prima";
+	$query="SELECT idPedidos, Nombre_Pedido, Numero_pedido, Unidades_Requeridas, Costo_unidad, Importe_pedido, Fecha_pedido, Fecha_entrega, Cliente_idCliente	FROM  pedidos";
 	 $resultado=$mysqli->query($query);
 ?>
 <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
@@ -201,7 +211,7 @@ img#imagen1{
 		<div class="row">
 			<div class="col-md-12">
 				<div class="panel panel-default">
-					<div class="panel-heading">Material Registrado</div>
+					<div class="panel-heading">Pedido Registrado</div>
 					<table class="table table-bordered table-condensed table-hover">
 					
 				<!-- Inicion del codigo de la Tabla-->	
@@ -209,12 +219,15 @@ img#imagen1{
 						<thead>
 							<tr class="warning">
 							    
-								<th>idMateria_prima</th>
-								<th>Nombre_Material</th>
-								<th>Unidades_Disponibles</th>
-								<th>Talla</th>
-								<th>Color</th>
-								<th>Precio_unidad</th>
+								<th>idPedidos</th>
+								<th>Nombre_Pedido</th>
+								<th>Numero_pedido</th>
+								<th>Unidades_Requeridas</th>
+								<th>Costo_unidad</th>
+								<th>Importe_pedido</th>
+								<th>Fecha_pedido</th>
+								<th>Fecha_entrega</th>
+								<th>Cliente_idCliente</th>
 								<th> </th>
 								<th> </th>
 							</tr>	
@@ -229,21 +242,24 @@ img#imagen1{
 							<tr>
 							<!--para que puedas tienes que me terlo en detalles y que muestr la tabla-->
 							    <td class="success">
-								<?php echo $row['idMateria_Prima'];?>
+								<?php echo $row['idPedidos'];?>
 							    </td>
 								
 						
-								<td> <?php echo $row['Nombre_Material'];?></td>
-								<td><?php echo $row['Unidades_Disponibles']; ?></td>
-								<td><?php echo $row['Talla']; ?></td>
-								<td><?php echo $row['Color']; ?></td>
-								<td><?php echo $row['Precio_unidad']; ?></td>						
+								<td> <?php echo $row['Nombre_Pedido'];?></td>
+								<td><?php echo $row['Numero_pedido']; ?></td>
+								<td><?php echo $row['Unidades_Requeridas']; ?></td>
+								<td><?php echo $row['Costo_unidad']; ?></td>
+								<td><?php echo $row['Importe_pedido']; ?></td>
+								<td><?php echo $row['Fecha_pedido']; ?></td>
+								<td><?php echo $row['Fecha_entrega']; ?></td>
+								<td><?php echo $row['Cliente_idCliente']; ?></td>						
 								<td class="success">
 								<a href="modificar.php">Modificar</a>
 							    </td>
 								<td class="success">
 								
-								<a  href="eliminar.php?id=<?php echo $row['idMateria_Prima'];?>">Eliminar</a>
+								<a  href="eliminarPedido.php?id=<?php echo $row['idPedidos'];?>">Eliminar</a>
 							    </td>
 					
 								
