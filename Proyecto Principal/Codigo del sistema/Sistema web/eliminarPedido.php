@@ -17,12 +17,12 @@ function confirmar(){
 confirmar=confirm("¿Esta seguro De Eliminar este Registro?"); 
 if (confirmar){ 
 // si pulsamos en aceptar
-alert('Has dicho que si');
+//alert('Has dicho que si');
 setTimeout ("redireccionar()");
 }
 else {
 // si pulsamos en cancelar
-alert('Has dicho que no');
+//alert('Has dicho que no');
 setTimeout ("redireccionar()"); 
 }
 }

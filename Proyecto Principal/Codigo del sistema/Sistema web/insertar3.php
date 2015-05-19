@@ -7,8 +7,8 @@ $Importe=$_POST['Importe'];
 $Fechapedido=$_POST['Fechapedido'];
 $Fechaentrega=$_POST['Fechaentrega'];
 $cliente=$_POST['cliente'];
-$link=mysql_connect("localhost","root","");
-mysql_select_db("sistema-web");
+$link=mysql_connect("localhost","root","123456");
+mysql_select_db("web-sis");
 
 
 
@@ -20,7 +20,7 @@ $ejecutar_consulta=mysql_query($consulta);
 if($ejecutar_consulta){
 ?>
 <script>
-alert('El registro de la materia se dío de alta exitosamente');
+alert('El pedido se dío de alta exitosamente');
 var pagina="inicio2.php"
 function redireccionar(){
 location.href=pagina
