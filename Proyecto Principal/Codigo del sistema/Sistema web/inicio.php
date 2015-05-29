@@ -65,6 +65,7 @@ img#imagen1{
 	</div>
 	<div class="container">
 	<div class="page-header">
+	<nav class="navbar navbar-inverse" role="navigation"> 
 		<ul class="nav nav-pills">
 			<li class="active"><a href="inicio.php">Inicio</a></li>			
 			
@@ -123,11 +124,13 @@ img#imagen1{
 			      Cuenta <span class="caret"></span>
 			    </a>
 			    <ul class="dropdown-menu">
-			      <li><a href="opcion1">Configuración</a></li>
+			      <li><a href="opcion1">Configuración de su cuenta</a></li>
+				  <li><a href="opcion1">Registrar cuenta de mostrador</a></li>
 			     
 			      <li class="divider"></li>
 			       <?php echo"<li><a href=salir.php>Cerrar Sesion</a></li>";?>
 			    </ul>
+				</nav>
 			 </li>
 			
 			

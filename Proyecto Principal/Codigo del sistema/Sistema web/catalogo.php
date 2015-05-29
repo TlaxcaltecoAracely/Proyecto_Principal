@@ -56,43 +56,33 @@ img#imagen1{
 	</div>
 	<div class="container">
 	<div class="page-header">
-	<nav class="navbar navbar-inverse" role="navigation"> 
+		<nav class="navbar navbar-inverse" role="navigation"> 
 		<ul class="nav nav-pills">
-			<li class="active"><a href="inicio1.php">Inicio</a></li>
-			<li><a href="catalogo.php">Cat·logo</a></li>
+			<li><a href="inicio1.php">Inicio</a></li>
+			<li class="active"><a href="#">Catalogo</a></li>
 			<li><a href="#">Pagos</a></li>
-			<li><a href="#">Carrito de compras</a></li>		
-	        <li><a href="#">Registrarse</a></li>				
+			<li><a href="#">Carrito de compras</a></li>			
 			<li class="dropdown">
 			    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
 			      Cuenta <span class="caret"></span>
 			    </a>
 			    <ul class="dropdown-menu">
-			      <li><a href="opcion1">ConfiguraciÛn</a></li>
+			      <li><a href="opcion1">Configuraci&oacute;n</a></li>
 			     
 			      <li class="divider"></li>
 			       <?php echo"<li><a href=salir.php>Cerrar Sesion</a></li>";?>
 			    </ul>
-				</nav>
 			 </li>
 			
 			
 		</ul>
+	</nav>
 		</div>
 	</div>
 	<br><br>
-	
-	<div class="container">
-	 <div class="panel panel-default">
-	  <div class="panel-body">
-       <p class="lead">Bienvenido. Puesdes realizar tus pedidos de sudaderas,playeras y gorras cuando lo requieras.
-	</div>
-   </div>
-</div>   
-
-  <!--  -->
-   
-   </center>
+	<center>
+	<iframe src='PhotoStack/' width='1024' frameborder='0'  height='345'></iframe>
+	</center>
    <script type="text/javascript" src='js/jquery-2.1.0.js'></script>
    <script type="text/javascript" src='js/bootstrap.min.js'></script>
 </body>
@@ -100,7 +90,7 @@ img#imagen1{
 <?php
 }else{?>
 <script>
-alert('Esta p·gina est· restringida, por favor inicie sesiÛn.');
+alert('Esta p√°gina est√° restringida, por favor inicie sesi√≥n.');
 var pagina="login.php"
 function redireccionar(){
 location.href=pagina

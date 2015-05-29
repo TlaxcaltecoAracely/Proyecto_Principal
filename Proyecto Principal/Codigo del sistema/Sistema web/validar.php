@@ -16,63 +16,6 @@ session_start();
 	$user=$_SESSION["usuario"];
  header('Location: inicio1.php');
 }
-if($usuario==""){
-  ?>
-  <script>
-  	alert("Debe ingresar un nombre de usuario");
-  	var pagina="login.php"
-	function redireccionar(){
-	location.href=pagina
-	}
-	setTimeout ("redireccionar()");
-  </script>
-
-  <?php 
-}
-else
-	if($password==""){
-  ?>
-  <script>
-  	alert("Debe ingresar una contaseña");
-  	var pagina="login.php"
-	function redireccionar(){
-	location.href=pagina
-	}
-	setTimeout ("redireccionar()");
-  </script>
-
-  <?php 
-}
-/*else
-	if(!preg_match("/^([a-z ñáéíóú]){4,15}+$/i",$usuario)){
-	?>
-  <script>
-  	alert("EL nombre de usuario Solo  permite letras");
-  	var pagina="login.php"
-	function redireccionar(){
-	location.href=pagina
-	}
-	setTimeout ("redireccionar()");
-  </script>
-
-  <?php 
-
-	}*/
-else	
-if (strlen($usuario)<2){
-?>
-  <script>
-  	alert("EL nombre de usuario debe ser mayor a 2 digitos");
-  	var pagina="login.php"
-	function redireccionar(){
-	location.href=pagina
-	}
-	setTimeout ("redireccionar()");
-  </script>
-
-  <?php 
-
-}	
 else
 if($ejecutar_consulta->num_rows>0){
 while($registro_contacto =$ejecutar_consulta->fetch_assoc()){

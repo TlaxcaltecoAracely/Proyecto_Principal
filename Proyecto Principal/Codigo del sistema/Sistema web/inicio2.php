@@ -56,6 +56,7 @@ img#imagen1{
 	</div>
 	<div class="container">
 	<div class="page-header">
+	<nav class="navbar navbar-inverse" role="navigation"> 
 		<ul class="nav nav-pills">
 			<li class="active"><a href="inicio2.php">Inicio</a></li>
 			<li class="dropdown">
@@ -77,6 +78,7 @@ img#imagen1{
 			      <li class="divider"></li>
 			       <?php echo"<li><a href=salir.php>Cerrar Sesion</a></li>";?>
 			    </ul>
+				</nav>
 			 </li>
 			
 			
